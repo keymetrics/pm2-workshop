@@ -1,0 +1,29 @@
+{
+  "name": "fullstack-workshop",
+  "version": "1.0.0",
+  "description": "Apidoc fullstack workshop pm2",
+  "main": "server.js",
+  "scripts": {
+    "test": "bash test",
+    "doc": "./node_modules/apidoc/bin/apidoc -f server.js -o doc"
+  },
+  "author": "soyuka",
+  "license": "WTFPL",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "connect-timeout": "^1.8.0",
+    "express": "^4.14.0",
+    "is-number": "^3.0.0",
+    "openpgp": "^2.3.5",
+    "pmx": "*",
+    "randomstring": "^1.1.5",
+    "uuid": "^3.0.0"
+  },
+  "devDependencies": {
+    "apidoc": "*"
+  },
+  "apidoc": {
+    "title": "Apidoc fullstack workshop pm2"
+  }
+}
