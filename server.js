@@ -14,7 +14,7 @@ const RANDOM_MAX = 156; //78 iterations until Number.MAX_SAFE_INTEGER
 
 const HTTP_TIMEOUT = 2000; //ms
 
-const MEM_MAX = 5e8; //~500mb, default
+const MEM_MAX = 1e8; //~100mb, default
 
 app
 .use(bodyParser.json())
@@ -99,6 +99,10 @@ app
  * @apiError (Error 500) error Memory size exceded
  */
 .get('/memoryleak', function(req, res, next) {
+  if (process.env.MEMORY_LEAK === 0) {
+    return next(new Error('Route not available'))
+  }
+
   memoryleak({interval: req.query.interval || 400, max_size: MEM_MAX}, () => next(new Error('Memory size exceded')));
 })
 
